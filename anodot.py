@@ -56,7 +56,6 @@ class Anodot:
 			anodot_base_url = "https://api.anodot.com/api/v1/"
 			action = anodot_command
 			url =   anodot_base_url + action + '?token=' + token
-			# url =  'http://dynamic.fastly.cdn.test.danidin.net/method.php'+ '?token=' + token
 			headers = { 
 					'Content-Type' : 'application/json',
 					'Accept' : 'application/json'
