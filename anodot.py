@@ -7,7 +7,10 @@ class Anodot:
 	response = {}
 	http_status=0
 
-	
+	def __init__(self, token):
+		self.token=token
+		return None
+		
 # define some functions
 	
 # Helper function to build an Anodot metric name out of a dimensions dictionary
@@ -50,9 +53,10 @@ class Anodot:
 # @payload - string/dict Currently string is not supported. Use build_payload helper function 
 #			to create the payload
 # @token - string - Account id
-	def sendMetrics(self, payload, token): 
+	def sendMetrics(self, payload): 
 		# method is not yet implemented
-		def executeAPI( anodot_command, anodot_payload , token, method=None):
+		def executeAPI( anodot_command, anodot_payload , method=None):
+			token=self.token
 			anodot_base_url = "https://api.anodot.com/api/v1/"
 			action = anodot_command
 			url =   anodot_base_url + action + '?token=' + token

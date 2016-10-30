@@ -1,16 +1,17 @@
 from anodot import Anodot
 
-anodot = Anodot()
 token='xxxxxxxxxxxxxxxxx'
+anodot = Anodot(token)
 
 # single metric
 payload={"x":56, "what": "revenue"}
+
 # set timestamp to None to automatically assign from system time
 timestamp=None
 event_payload_name = anodot.build_graphite_name(payload) 
 event= anodot.build_payload(event_payload_name, 123, timestamp, 'gauge' ) 
 
-print anodot.sendMetrics( event, token)
+print anodot.sendMetrics( event)
 print anodot.http_status
 
 # multiple metrics batch
@@ -26,5 +27,5 @@ profit=666
 event_b= anodot.build_payload(event_payload_name, profit, timestamp, 'counter' ) 
 
 # Send combined events
-print anodot.sendMetrics( event_a+event_b, token)
+print anodot.sendMetrics( event_a+event_b)
 print anodot.http_status
